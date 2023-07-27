@@ -1,0 +1,39 @@
+mat-grid-tile
+{
+  box-shadow: 1.5px 1.5px 1.5px 1.5px rgb(152, 152, 152);
+
+  border-radius: 5px;
+}
+.image-container{
+  position: relative;
+  height: 300px;
+}
+.home-page-product-image{
+max-width: 90%;
+max-height: 90%;
+
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+}
+
+.lookContainer1{
+  height: 300px;
+  background-color: rgb(213, 235, 244);
+  width: 100%;
+}
+
+mat-grid-tile{
+  background-color: #ce98a4;
+}
+
+
+
+
+
+
+
+

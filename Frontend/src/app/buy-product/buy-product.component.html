@@ -1,0 +1,69 @@
+<br><br> <br><br>
+
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead class="thead">
+          <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr *ngFor="let product of productDetails">
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productDiscountedPrice }}</td>
+            <td>
+              <select
+                #quantity
+                class="form-select"
+                [ngModel]="getQuantityForProduct(product.productId)"
+                (change)="
+                  onQuantityChanged(quantity.value, product.productId)
+                "
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+            <td>
+              {{
+                getCalculatedTotal(
+                  product.productId,
+                  product.productDiscountedPrice
+                )
+              }}
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>Total</td>
+            <td>{{ getCalculatedGrandTotal() }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <form  #orderForm="ngForm" class="mt-4"
+      (ngSubmit)="createTransactionAndPlaceOrder(orderForm)" align="center" >
+      <button type="submit" mat-stroked-button style="color: green;">
+              Place Order
+            </button>
+    </form>
+
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+
+
+
+

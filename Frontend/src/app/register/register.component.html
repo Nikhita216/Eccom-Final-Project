@@ -1,0 +1,242 @@
+<br /><br />
+<div class="row" >
+  <div class="col-6">
+    <div class="container mt-5" >
+      <div class="card p-3" style="background-color: transparent;">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>User Name</mat-label>
+            <input
+              matInput
+              ngModel
+              type="text"
+              id="userName"
+              name="userName"
+              placeholder="Enter User Name"
+              class="form-control"
+              required
+              minlength="4"
+              maxlength="12"
+              pattern="[a-zA-Z].*"
+              #userName="ngModel"
+            />
+          </mat-form-field>
+          <div
+            style="padding-top: 0px; color: red"
+            *ngIf="userName.invalid && (userName.dirty || userName.touched)"
+            class="alert"
+          >
+            <div *ngIf="userName.errors?.['required']">
+              User Name is required!
+            </div>
+            <div *ngIf="userName.errors?.['minlength']">
+             User Name must be at least 4 characters long!
+            </div>
+            <div *ngIf="userName.errors?.['maxlength']">
+              User Name must be less than or equal to 10 characters
+            </div>
+            <div *ngIf="userName.errors?.['pattern']">
+              User Name must start with a character!!
+            </div>
+          </div>
+
+          <!---->
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>User Full Name</mat-label>
+            <input
+              matInput
+              ngModel
+              type="text"
+              id="userFullName"
+              name="userFullName"
+              placeholder="Enter User Full Name"
+              class="form-control"
+              required
+              minlength="4"
+              maxlength="15"
+              pattern="[a-zA-Z].*"
+              #userFullName="ngModel"
+            />
+          </mat-form-field>
+
+          <div
+            style="padding-top: 0px; color: red"
+            *ngIf="
+            userFullName.invalid &&
+              (userFullName.dirty || userFullName.touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="userFullName.errors?.['required']">
+              Name is required!
+            </div>
+            <div *ngIf="userFullName.errors?.['minlength']">
+              Name must be at least 4 characters long!
+            </div>
+            <div *ngIf="userFullName.errors?.['maxlength']">
+               Name must be less than or equal to 15 characters
+            </div>
+            <div *ngIf="userFullName.errors?.['pattern']">
+              Only characters are allowed!!
+            </div>
+          </div>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>User Address</mat-label>
+            <input
+
+              matInput
+              ngModel
+              type="text"
+              id="userAddress"
+              name="userAddress"
+              placeholder="Enter User Address"
+              class="form-control"
+              required
+              minlength="4"
+              maxlength="20"
+              pattern="[a-zA-Z].*"
+              #userAddress="ngModel"
+            />
+          </mat-form-field>
+
+          <div
+            style="padding-top: 0px; color: red"
+            *ngIf="
+            userAddress.invalid &&
+              (userAddress.dirty || userAddress.touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="userAddress.errors?.['required']">
+              Address is required!
+            </div>
+            <div *ngIf="userAddress.errors?.['minlength']">
+              Address must be at least 4 characters long!
+            </div>
+            <div *ngIf="userAddress.errors?.['maxlength']">
+              Address must be less than or equal to 20 characters
+            </div>
+            <div *ngIf="userAddress.errors?.['pattern']">
+              Only characters are allowed!!
+            </div>
+          </div>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              ngModel
+              type="password"
+              id="userPassword"
+              name="userPassword"
+              placeholder="Enter Password"
+              class="form-control"
+              required
+              minlength="4"
+              maxlength="12"
+              #userPassword="ngModel"
+            />
+          </mat-form-field>
+
+          <div
+            style="padding-top: 0px; color: red"
+            *ngIf="
+              userPassword.invalid &&
+              (userPassword.dirty || userPassword.touched)
+            "
+            class="alert"
+          >
+            <div *ngIf="userPassword.errors?.['required']">
+              Password is required!
+            </div>
+            <div *ngIf="userPassword.errors?.['minlength']">
+              Password must be at least 4 characters long!
+            </div>
+            <div *ngIf="userPassword.errors?.['maxlength']">
+              Password must be less than or equal to 10 characters
+            </div>
+          </div>
+
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Contact Number</mat-label>
+            <input
+
+              matInput
+              placeholder="Contact Number"
+              ngModel
+              name="mobileNumber"
+              class="form-control"
+              required
+              minlength="10"
+              maxlength="10"
+              pattern="[0-9]*"
+              #mobileNumber="ngModel"
+
+
+            />
+          </mat-form-field>
+
+          <div
+          style="padding-top: 0px; color: red"
+          *ngIf="
+          mobileNumber.invalid &&
+            (mobileNumber.dirty || mobileNumber.touched)
+          "
+          class="alert"
+        >
+          <div *ngIf="mobileNumber.errors?.['required']">
+            Contact Number is required!
+          </div>
+
+          <div *ngIf="mobileNumber.errors?.['minlength']">
+            Contact Number length must be less than or equal to 10!!
+          </div>
+          <div *ngIf="mobileNumber.errors?.['maxlength']">
+            Contact Number must be less than or equal to 10 characters
+          </div>
+          <div *ngIf="mobileNumber.errors?.['pattern']">
+            Only Numbers are allowed
+          </div>
+        </div>
+
+
+
+
+          <div class="text-center">
+            <button
+              class="w-100"
+              type="submit"
+              mat-raised-button
+              style="background-color: #ab6f7c"
+            >
+              Register
+            </button>
+          </div>
+          &nbsp;
+          <div align="center">
+            <span>Already have an account?</span> &nbsp;
+            <button
+              type="submit"
+              mat-raised-button
+              routerLink="/login"
+              style="background-color: #ab6f7c"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6 mt-5">
+    <img
+      style="height: 450px; width: 750px"
+      src="/assets/img/Pink.jpeg"
+      alt=""
+    />
+  </div>
+</div>

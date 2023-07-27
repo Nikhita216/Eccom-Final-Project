@@ -1,0 +1,25 @@
+.space-buttons{
+  flex: 1 1 auto;
+}
+.mat-menu{
+  background-color: blueviolet;
+}
+.logo-img
+{
+  height: 50px;
+  width: 50px;
+  border-top-left-radius: 20px;
+
+}
+.fixed-header{
+  position: fixed;
+  top: 0;
+  z-index:999;
+
+}
+
+
+
+
+
+

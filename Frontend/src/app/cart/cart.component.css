@@ -1,0 +1,19 @@
+table
+{
+  width: 100%;
+}
+table td{
+
+  padding: 10px;
+}
+.mat-column-Description{
+  width: 35% !important;
+}
+.container
+{
+  border: solid ;
+  border-color: transparent;
+  border-width: 1px;
+  align-items: center;
+  box-shadow: 2px 2px 2px 2px  rgb(145, 144, 144);
+}

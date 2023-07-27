@@ -1,0 +1,157 @@
+
+
+<div class="w-100" style="background-color: transparent">
+  <div align="center">
+    <div class="container-1 mt-5 mb-5" >
+      <div class="row w-50">
+        <div class="col-12 mt-5">
+          <form #productForm="ngForm" (ngSubmit)="addProduct(productForm)"
+           style="background-color: rgb(195, 231, 231); padding: 20px; box-shadow: 2px 2px 2px 2px gray;">
+
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter Product Name</mat-label>
+              <input
+                matInput
+                placeholder="Product Name"
+                [(ngModel)]="product.productName"
+                name="productName"
+              />
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter Product Description</mat-label>
+              <input
+                matInput
+                placeholder="Product Description"
+                [(ngModel)]="product.productDesciption"
+                name="productDesciption"
+              />
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter Product's Actual Price</mat-label>
+              <input
+                matInput
+                placeholder="Actual Price"
+                [(ngModel)]="product.productActualPrice"
+                name="productActualPrice"
+              />
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Enter Product's Discounted Price</mat-label>
+              <input
+                matInput
+                placeholder="Discounted Price"
+                [(ngModel)]="product.productDiscountedPrice"
+                name="productDiscountedPrice"
+              />
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+
+            <h4 align="left" style="color: grey;">Select Product Category</h4>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="product.productCategory" name="productCategory">
+              <mat-radio-button value="Male">Male</mat-radio-button>
+              <mat-radio-button value="Female">Female</mat-radio-button>
+              <mat-radio-button value="Kids">Kids</mat-radio-button>
+              <mat-radio-button value="Beauty">Beauty</mat-radio-button>
+              <mat-radio-button value="Footwear">Footwear</mat-radio-button>
+              <mat-radio-button value="Accessories">Accessories</mat-radio-button>
+            </mat-radio-group>
+            <!--  <mat-form-field appearance="outline" class="w-100">
+              categories: string[] = ['Male', 'Female', 'Kids', 'Beauty','Footwear','Accessories'];
+          <mat-label>Enter Product's Category</mat-label>
+          <input matInput placeholder="Enter Category male female kids accessories footwear" [(ngModel)]="product.productCategory" name="productCategory">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>-->
+      <br>
+            <div>
+              <div class="dropzone" appDrag (files)="fileDropped($event)">
+                <div class="text-wrapper">
+                  <div class="centered">
+                    Drag and drop your file or
+                    <a (click)="selectFile.click()" class="browse-button">
+                      browse</a
+                    >
+
+                    a file
+                  </div>
+                </div>
+              </div>
+
+              <input
+                type="file"
+                multiple
+                value="select "
+                style="display: none"
+                #selectFile
+                (change)="onFileSelected($event)"
+              />
+            </div>
+
+            <div class="mt-5">
+              <div class="row">
+                <mat-grid-list cols="5" rowHeight="1:1">
+                  <mat-grid-tile
+                    *ngFor="let file of product.productImages; let i = index"
+                  >
+                    <div style="position: relative">
+                      <span class="btn-remove-image" (click)="removeImages(i)"
+                        >X</span
+                      >
+                      <img [src]="file.url" width="100px" height="100px" />
+                    </div>
+                  </mat-grid-tile>
+                </mat-grid-list>
+              </div>
+            </div>
+
+            <div align="center" class="mb-5">
+              <button
+                mat-stroked-button
+                style="color: black; background-color: #ab6f7c;margin-right: 3px"
+
+              >
+                Clear</button
+              >&nbsp;&nbsp;
+              <button
+                mat-stroked-button
+                style="color: black; background-color: #ab6f7c;"
+                type="submit"
+                *ngIf="isNewProduct"
+              >
+                Add Product
+              </button>
+              <button
+                mat-stroked-button
+                style="color: black; background-color: #ab6f7c;"
+                type="submit"
+                *ngIf="!isNewProduct"
+              >
+                Update Product
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

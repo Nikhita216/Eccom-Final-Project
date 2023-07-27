@@ -1,0 +1,71 @@
+
+<br><br>
+
+<div class="container p-5 mt-4 " >
+  <div class="card " style="padding: 20px; " style="background-color: transparent; box-shadow: 3px 3px 3px 3px grey;" >
+    <div class="container mt-5 mb-4"style="background-color: transparent;" >
+      <div class="row" >
+
+        <div class="col-6">
+          <div  style="background-color: transparent;">
+          <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <mat-form-field appearance="outline" class="w-100" style="background-color: transparent;">
+              <mat-label>User Name</mat-label>
+              <input
+                matInput
+                ngModel
+                type="text"
+                id="userName"
+                name="userName"
+                placeholder="Username"
+              />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="w-100">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                type="password"
+                ngModel
+                id="userPassword"
+                name="userPassword"
+                placeholder="Password"
+              />
+            </mat-form-field>
+
+            <button
+              type="submit"
+              mat-raised-button
+              class="w-100"
+              style="background-color: #ab6f7c"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+          <br />
+
+          <div class="text-center mt-2">
+            <span>Dont't have an account?</span> &nbsp;
+            <button
+              class="w-20"
+              mat-raised-button
+              type="button"
+              (click)="registerUser()"
+              style="background-color: #ab6f7c"
+            >
+              Create account
+            </button>
+          </div>
+        </div>
+        <div class="col-6">
+
+          <div class="card image-container">
+            <img src="/assets/img/log.jpeg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

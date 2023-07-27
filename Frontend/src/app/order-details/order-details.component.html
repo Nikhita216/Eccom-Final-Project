@@ -1,0 +1,66 @@
+<br><br><br><br>
+<div  align="right" style="padding-right: 25px;">
+  <mat-form-field>
+    <mat-label
+      ><i
+        class="fa fa-filter"
+        aria-hidden="true"
+        style="color: #ab6f7c; font-size: 20px"
+        >Filter</i
+      ></mat-label
+    >
+
+    <mat-select>
+      <mat-option value="All"  (click)="getAllOrderDetailsForAdmin('All')">
+        All
+      </mat-option>
+      <mat-option value="Placed" (click)="getAllOrderDetailsForAdmin('Placed')">
+        Placed
+      </mat-option>
+      <mat-option
+        value="Delivered"
+        (click)="getAllOrderDetailsForAdmin('Delivered')"
+      >
+      Delivered
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</div>
+
+
+
+<div class=" container mt-4" *ngFor="let element of datasource" >
+  <div class="row " align="center">
+    <div class="col-2 " >
+      {{ element.orderId }}
+    </div>
+    <div class="col-2 ">
+      {{ element.product.productName }}
+    </div>
+    <div class="col-2 ">
+      {{ element.orderAmount }}
+    </div>
+    <div class="col-2 ">
+      {{ element.user.userFullName }}
+    </div>
+    <div class="col-2 ">
+      {{ element.user.userAddress }}
+    </div>
+    <div class="col-2 ">
+      {{ element.user.mobileNumber }}
+    </div>
+
+    <div class="col-2 ">
+      <button
+          *ngIf="element.orderStatus == 'Placed'"
+          mat-raised-button
+          style="background-color: #ab6f7c"
+          (click)="markAsDelivered(element.orderId)"
+        >
+          Mark as Delivered
+        </button>
+    </div>
+  </div>
+</div>
+
